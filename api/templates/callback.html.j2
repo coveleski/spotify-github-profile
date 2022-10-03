@@ -98,6 +98,12 @@
             <span>Show Offline</span>
           </label>
         </div>
+        <div class="col s12 m3">
+            <label class="row">
+              <input type="checkbox" class="filled-in" id="swap-artist-checkbox" />
+              <span>Swap Artist/Album</span>
+            </label>
+          </div>
       </div>
 
       <div class="row center">
@@ -184,6 +190,7 @@
       cover_image: true,
       theme: 'default',
       show_offline: false,
+      swap_artist,
     };
     var openSong = false;
     var orgMode = false;
@@ -219,6 +226,11 @@
 
     $("#show-offline-checkbox").change(function() {
       urlParams.show_offline = this.checked;
+      updateUrl();
+    });
+
+    $("#swap-artist-checkbox").change(function() {
+      urlParams.swap_artist = this.checked;
       updateUrl();
     });
 
